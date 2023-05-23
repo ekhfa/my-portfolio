@@ -2,45 +2,34 @@ import React from "react";
 import PageHeaderContent from "../../components/pageHeaderContent";
 import { BsInfoCircleFill } from "react-icons/bs";
 import ImageOne from "../../images/image1.jpg";
-import ImageTwo from "../../images/image2.jpg";
+import ImageTwo from "../../images/image2.png";
 import ImageThree from "../../images/image3.jpg";
-import ImageFour from "../../images/image4.jpg";
-import ImageFive from "../../images/image5.jpg";
+
 import "./styles.scss";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const portfolioData = [
   {
     id: 2,
-    name: "Ecommerce",
+    name: "Social Media Opinion Mining Based on Bangla Public Post of Facebook",
     image: ImageOne,
-    link: "",
+    link: "/thesis",
   },
   {
-    id: 3,
-    name: "Notes App",
-    link: "",
+    id: 2,
+    name: "Real-time traffic monitoring and traffic offense detection using YOLOv4 and OpenCV DNN",
+    link: "/traffic-monitoring",
     image: ImageTwo,
   },
   {
-    id: 2,
-    name: "Supplier Design",
-    image: ImageThree,
-    link: "",
-  },
-  {
-    id: 2,
-    name: "Todo App",
-    image: ImageFour,
-
-    link: "",
-  },
-  {
     id: 3,
-    name: "Shopping cart design",
-    image: ImageFive,
-    link: "",
+    name: "DocTalk",
+    image: ImageThree,
+    link: "/doctalk",
   },
+  
+
 ];
 
 const filterData = [
@@ -50,11 +39,11 @@ const filterData = [
   },
   {
     filterId: 2,
-    label: "Developement",
+    label: "RESEARCH",
   },
   {
     filterId: 3,
-    label: "Design",
+    label: "APP",
   },
 ];
 
@@ -115,9 +104,13 @@ const Portfolio = () => {
               <div className="overlay">
                 {index === hoveredValue && (
                   <div>
-                    <p>{item.name}</p>
-                    <button>Visit</button>
-                  </div>
+                  <p className="card-text" style={{ whiteSpace: 'normal' }}>
+                    {item.name}
+                  </p>
+                  <Link to={item.link}>
+                     <button>Visit</button>
+                   </Link>                  
+                </div>               
                 )}
               </div>
             </div>
